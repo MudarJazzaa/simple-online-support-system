@@ -1,13 +1,13 @@
-#
+# Backend
 
-git init -b dev
+composer install
 
-git add .
+hp spark migrate
 
-git commit -m "First commit"
+php spark serve
 
-git remote add origin https://github.com/MudarJazzaa/simple-online-support-system.git
+# Frontend
 
-git remote -v
+yarn install
 
-git push origin main
+yarn start

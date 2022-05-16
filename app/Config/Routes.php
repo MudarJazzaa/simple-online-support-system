@@ -31,7 +31,34 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+// $routes->get('/', 'Home::index');
+
+// login route
+$routes->post('auth/login', 'AuthController::login');
+
+// register route
+$routes->post('auth/register', 'AuthController::register');
+
+$routes->post('reply', 'ReplyController::create');
+// $routes->get('reply/(:num)/(:num)', 'ReplyController::getReplyById/$1/$2');
+$routes->get('reply', 'ReplyController::getReplies');
+
+// get replies of question
+$routes->get('reply/question/(:num)', 'ReplyController::getRepliesByQuestion/$1');
+
+
+// create question route
+$routes->post('question', 'QuestionController::create');
+
+$routes->get('question/(:num)/(:num)', 'QuestionController::getQuestionById/$1/$2');
+$routes->get('question/user/(:num)', 'QuestionController::getQuestionsbyUserId/$1');
+
+// get questions route
+$routes->get('question', 'QuestionController::getQuestions');
+
+// update route
+$routes->put('question', 'QuestionController::updateStatus');
+
 
 /*
  * --------------------------------------------------------------------
